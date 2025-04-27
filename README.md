@@ -222,31 +222,39 @@ To write a C program to replace all even elements with 'E' in one dimensional ar
 #include <stdio.h>
 
 int main() {
-    int n, i;
-
+    int n;
     scanf("%d", &n);
 
     int arr[n];
-
-    printf("Enter %d elements:\n", n);
-    for (i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
 
-    printf("Array after replacing even elements with 'E':\n");
-    for (i = 0; i < n; i++) {
-        if (arr[i] % 2 == 0)
+    for (int i = 0; i < n; i++) {
+        if (arr[i] % 2 == 0) {
+            arr[i] = 'E';  // Replacing even numbers with 'E'
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == 'E') {
             printf("E ");
-        else
+        } else {
             printf("%d ", arr[i]);
+        }
     }
 
     return 0;
 }
+
 ```
 ## Output:
  
-![437751071-ec5273f5-81e1-40d0-820d-23fdfe7f3ae4](https://github.com/user-attachments/assets/5a4b5e97-97c3-416f-b87f-1da0d048557e)
+
+
+
+![image](https://github.com/user-attachments/assets/3d0db5d3-a447-455a-bbd5-24fb2d698a43)
+
 
 
 ## Result:
