@@ -15,44 +15,35 @@ To write a program to prepare EMI calculator using function without return type 
 
 ## PROGRAM
 ```
+
 #include <stdio.h>
-#include <math.h>
-
-
-void calculateEMI(float principal, float rate, int time) {
-    float emi;
-    float monthlyRate = rate / (12 * 100); 
-    int months = time * 12;
-
-    emi = (principal * monthlyRate * pow(1 + monthlyRate, months)) / (pow(1 + monthlyRate, months) - 1);
-
-    printf("\nThe EMI is: %.2f\n", emi);
-}
-
-int main() {
-    float principal, rate;
-    int time;
-
-    
-    scanf("%f", &principal);
-
-   
-    scanf("%f", &rate);
-
-    
-    scanf("%d", &time);
-
+ #include <math.h>
  
-    calculateEMI(principal, rate, time);
-
-    return 0;
-}
+ void calculateEMI(float principal,float annualRate,float tenureYears) {
+    
+     float tenureMonths = tenureYears * 12;  
+     float monthlyRate = (annualRate / (12*100));
+     float emi = (principal * monthlyRate * pow(1 + monthlyRate, tenureMonths)) / 
+                 (pow(1 + monthlyRate, tenureMonths) - 1);
+     
+     printf("Monthly EMI is= %.3f", emi);
+ }
+ 
+ int main() {
+     float principal; 
+     float annualRate;   
+     float tenureYears;   
+     scanf("%f %f %f",&principal,&annualRate,&tenureYears);
+     calculateEMI(principal,annualRate,tenureYears);
+     return 0;
+ }
 ```
 
 ## OUTPUT
 
 
-![437750122-decc10cb-261c-4e95-9c8b-767a53acd002](https://github.com/user-attachments/assets/0b2702c3-897c-4089-ae27-8bef858a9251)
+![image](https://github.com/user-attachments/assets/0e4bb2fb-62dd-46d7-8101-7302b58c8225)
+
 
 
 
@@ -78,33 +69,32 @@ To write a C program to generate the Fibonacci series for the value 6.
 
 ## PROGRAM
 ```
-#include <stdio.h>
-
-int main() {
-    int n = 6; // Number of terms
-    int first = 0, second = 1, next, i;
-
-    printf("Fibonacci Series up to %d terms:\n", n);
-
-    for (i = 0; i < n; i++) {
-        if (i <= 1)
-            next = i;
-        else {
-            next = first + second;
-            first = second;
-            second = next;
-        }
-        printf("%d ", next);
+#include<stdio.h>
+void fibonacci(int n)
+{
+    int temp=-1,a=1,b=0;
+    for (int i=1;i<=n;i++)
+    {
+        temp=a+b;
+        a=b;
+        b=temp;
+        printf("%d ",a);
+       
     }
-
-    return 0;
+}
+int main()
+{
+    int num;
+    scanf("%d",&num);
+    fibonacci(num);
 }
 ```
 
 ## OUTPUT
 
 
-![437750157-371ee0a5-0b36-471f-8f73-95b03e54f54c](https://github.com/user-attachments/assets/8d3385ed-f9bb-4c7d-b119-21d6a5b6647d)
+![image](https://github.com/user-attachments/assets/b90475c6-17ac-4e49-a13c-527bf0a734e2)
+
 
 
 
@@ -130,24 +120,18 @@ To write a C program to read n elements as input and print the last element of t
 
 ## PROGRAM
 ```
-#include <stdio.h>
-
-int main() {
-    int n, i;
-;
-    scanf("%d", &n);
-
-    int arr[n]; 
-
-    printf("Enter %d elements:\n", n);
-    for (i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
+#include<stdio.h>
+int main()
+{
+    int n,i;
+    scanf("%d",&n);
+    int arr[n];
+    for (i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
     }
-
-
-    printf("The last element is: %d\n", arr[n - 1]);
-
-    return 0;
+    if (n>0) printf("%d\n",arr[n-1]);
+    else printf(" ");   
 }
 ```
 ## OUTPUT
@@ -155,7 +139,7 @@ int main() {
 
 
 
-![437750225-c195c5a9-a824-4463-b5be-7f8e552f26f8](https://github.com/user-attachments/assets/12d0a2b6-1f00-473a-a2c4-96c5a6f6374b)
+![image](https://github.com/user-attachments/assets/6ac6c664-13ed-4589-bd87-22662a3b5f46)
 
 
 
@@ -181,28 +165,20 @@ To write a C Program to count total number of positive elements in an array.
 
 ## PROGRAM
 ```
-#include <stdio.h>
-
-int main() {
-    int n, i, count = 0;
-
-
-    scanf("%d", &n);
-
-    int arr[n]; 
-
-    printf("Enter %d elements:\n", n);
-    for (i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
-
-        if (arr[i] > 0) {
-            count++; 
-        }
+#include<stdio.h>
+int main()
+{
+    int n,i;
+    scanf("%d",&n);
+    int arr[n],count_pos=0,count_neg=0;
+    for (i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+        if (arr[i]>0) count_pos++;
+        else count_neg++;
     }
-
-    printf("Total number of positive elements: %d\n", count);
-
-    return 0;
+    printf("count  of positive numbers  in array: %d\n",count_pos);
+    printf("count  of negative numbers  in array: %d",count_neg);
 }
 ```
 
@@ -210,7 +186,7 @@ int main() {
 ## OUTPUT
 
 
-![437750245-8e326c57-dd42-4e62-93b5-3ad8ee278b99](https://github.com/user-attachments/assets/745824f2-1d6e-4d92-af12-6a356e9a8e4a)
+![image](https://github.com/user-attachments/assets/4b53ebae-c663-415f-b0cb-f7468d4d3199)
 
 
 
